@@ -21,7 +21,18 @@ searchInput.addEventListener('keyup', async (e) => {
     const result =
       json.length === 0
         ? '<li>No search result</li>'
-        : json.map((item: { name: string }) => `<li>${item.name}</li>`).join('')
+        : json
+            .map(
+              (item: { name: string; email: string; body: string }) =>
+                `<li>
+              <strong>${item.name}</strong> 
+              <br>
+              <span style="color: gray; font-size: 0.9em;">${item.email}</span>
+              <br>
+              <p>${item.body}</p>
+            </li>`,
+            )
+            .join('')
 
     if ($results) $results.innerHTML = result
   } catch (error) {
