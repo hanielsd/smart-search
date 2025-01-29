@@ -1,10 +1,14 @@
 const searchInput = document.getElementById('search-input') as HTMLInputElement
 const $results = document.getElementById('results') as HTMLUListElement
 
+if ($results) {
+  $results.innerHTML = '<li class="hint">Start typing in the search bar</li>'
+}
+
 searchInput.addEventListener('keyup', async (e) => {
   const query = searchInput.value.trim()
   if (query.length === 0) {
-    $results.innerHTML = ''
+    $results.innerHTML = '<li class="hint">Start typing in the search bar</li>'
     return
   }
 
@@ -14,13 +18,12 @@ searchInput.addEventListener('keyup', async (e) => {
     )
     const json = await res.json()
 
-    const result = json
-      .map((item: { name: string }) => `<li>${item.name}</li>`)
-      .join('')
+    const result =
+      json.length === 0
+        ? '<li>No search result</li>'
+        : json.map((item: { name: string }) => `<li>${item.name}</li>`).join('')
 
-    if ($results) {
-      $results.innerHTML = result
-    }
+    if ($results) $results.innerHTML = result
   } catch (error) {
     console.error('Error fetching search results:', error)
     $results.innerHTML = '<li>Error fetching results</li>'
