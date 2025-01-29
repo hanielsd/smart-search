@@ -7,7 +7,7 @@ body {
 
 section {
     background: white;
-    max-width: 500px;
+    max-width: 600px;
     margin: auto;
     padding: 20px;
     border-radius: 8px;
@@ -19,7 +19,7 @@ section {
 }
 
 input {
-    width: 100%;
+    width: calc(100% - 40px);
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
@@ -42,5 +42,7 @@ li {
 li.hint {
     font-size: 13px;
     background-color: white;
-    padding: 2px
+    padding: 2px 10px;
+    margin-top: -12px;
+    color: #6c6c6c;
 }
