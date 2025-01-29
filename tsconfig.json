@@ -9,7 +9,7 @@
         "outDir": "./build",
         "rootDir": ".",
         "moduleResolution": "node",
-        "lib": ["ES2020", "DOM", "DOM.Iterable"]
+        "lib": ["ES2020", "DOM", "DOM.Iterable"],
     },
     "include": ["*.ts"],
     "exclude": ["node/**/*.ts", "node_modules"]
