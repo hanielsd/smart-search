@@ -5,15 +5,19 @@ Smart Search is a simple html web app that allows users to search comments dynam
 ## Setup
 
 1. Clone the repository:
-   `git clone "git@github.com:hanielsd/smart-search.git"`
+   ```
+   git clone "git@github.com:hanielsd/smart-search.git"
+   ```
 2. Install dependencies:
    `npm install`
 3. Modify CORS settings in node/index.ts if needed:
-   `   app.use(
+
+`````app.use(
     cors({
     origin: 'http://localhost:3000', // Adjust as needed
     }),
-)`
+)````
+`````
 
 ## Scripts
 
