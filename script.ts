@@ -8,16 +8,21 @@ searchInput.addEventListener('keyup', async (e) => {
     return
   }
 
-  const res = await fetch(
-    'http://localhost:3001/?q=' + encodeURIComponent(query),
-  )
-  const json = await res.json()
+  try {
+    const res = await fetch(
+      'http://localhost:3001/?q=' + encodeURIComponent(query),
+    )
+    const json = await res.json()
 
-  const result = json
-    .map((item: { name: string }) => `<li>${item.name}</li>`)
-    .join('')
+    const result = json
+      .map((item: { name: string }) => `<li>${item.name}</li>`)
+      .join('')
 
-  if ($results) {
-    $results.innerHTML = result
+    if ($results) {
+      $results.innerHTML = result
+    }
+  } catch (error) {
+    console.error('Error fetching search results:', error)
+    $results.innerHTML = '<li>Error fetching results</li>'
   }
 })
