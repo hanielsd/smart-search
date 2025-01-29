@@ -6,7 +6,8 @@
     "node": "22"
   },
   "scripts": {
-    "dev": "concurrently \"sass --watch style.scss ./build/style.css\" \"tsc --watch\" \"serve\""
+    "dev": "concurrently \"sass --watch style.scss ./build/style.css\" \"tsc --watch\" \"serve\"",
+    "dev:api":"nodemon --watch node --ext ts --exec \"npx tsx node/index.ts\""
   },
   "keywords": [],
   "author": "",
