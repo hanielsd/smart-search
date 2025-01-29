@@ -8,11 +8,17 @@ app.use(cors());
 
 app.get("/", async (req, res) => {
   try {
-    // Fetch comments from the API
+    const query = (req.query.q as string) || "";
+
     const { data } = await axios.get(
       "https://jsonplaceholder.typicode.com/comments?postId=3"
     );
-    console.log({ data });
+
+    const commentsFiltered = data.filter((comment: any) =>
+      comment.name.toLowerCase().includes(query.toLowerCase())
+    );
+
+    res.status(200).send(commentsFiltered);
   } catch (e) {
     res.status(500).send({ error: "Something went wrong, try again later!" });
   }
