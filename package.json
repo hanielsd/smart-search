@@ -7,7 +7,8 @@
   },
   "scripts": {
     "dev": "concurrently \"sass --watch style.scss ./build/style.css\" \"tsc --watch\" \"serve\"",
-    "dev:api": "nodemon --watch node --ext ts --exec \"npx tsx node/index.ts\""
+    "dev:api": "nodemon --watch node --ext ts --exec \"npx tsx node/index.ts\"",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +19,7 @@
     "express": "^4.21.2"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/jest": "^29.5.14",
     "concurrently": "^7.0.0",
