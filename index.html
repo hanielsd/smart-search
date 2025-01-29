@@ -19,7 +19,11 @@
             <!-- Search results go in here -->
         </ul>
     </section>
-    <script src="/build/script.js"></script>
+    <script type="module" src="/build/script.js"></script>
+    <script type="module">
+        import { init } from './build/script.js';
+        init(); 
+    </script>
 </body>
 
 </html>
