@@ -6,7 +6,11 @@ import { JPHComment } from './types'
 
 const app: Express = express()
 
-app.use(cors())
+app.use(
+  cors({
+    origin: 'http://localhost:3000',
+  }),
+)
 
 export async function fetchNfilterComments(
   query: string,
